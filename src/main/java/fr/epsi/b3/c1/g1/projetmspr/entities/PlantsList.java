@@ -2,6 +2,7 @@ package fr.epsi.b3.c1.g1.projetmspr.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,9 +15,11 @@ public class PlantsList {
     private String description;
     private String picture;
 
-    @OneToMany(mappedBy = "plantsLists",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "plantsList",cascade = CascadeType.ALL)
     private Set<Service> services;
-  
+    {
+        services = new HashSet<>();
+    }
 
     public void setId(Integer id) {
         this.id = id;

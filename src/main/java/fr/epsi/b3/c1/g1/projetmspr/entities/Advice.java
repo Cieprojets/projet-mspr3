@@ -14,6 +14,8 @@ public class Advice {
     @ManyToOne
     private Botanist botanist;
 
+
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -25,16 +27,7 @@ public class Advice {
     public Advice() {
     }
 
-    public Advice(String advice) {
-        this.advice = advice;
-    }
 
 
-    public String getAdvice() {
-        return advice;
-    }
 
-    public void setAdvice(String advice) {
-        this.advice = advice;
-    }
 }
