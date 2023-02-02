@@ -3,8 +3,10 @@ package fr.epsi.b3.c1.g1.projetmspr.entities;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 
+import java.io.Serializable;
+
 @Embeddable
-public class Address {
+public class Address implements Serializable {
 
     private Integer number;
     private String street;
@@ -62,5 +64,14 @@ public class Address {
     }
 
     public Address() {
+    }
+
+    public Address(Integer number, String street, String city, Integer postcode, Double latitude, Double longitude) {
+        this.number = number;
+        this.street = street;
+        this.city = city;
+        this.postcode = postcode;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 }

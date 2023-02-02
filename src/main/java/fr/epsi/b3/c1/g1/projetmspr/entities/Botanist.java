@@ -2,11 +2,12 @@ package fr.epsi.b3.c1.g1.projetmspr.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Botanist {
+public class Botanist implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,6 +36,7 @@ public class Botanist {
         this.numEmployee = numEmployee;
         this.lastname = lastname;
         this.firstname = firstname;
+
     }
 
     public Integer getNumEmployee() {

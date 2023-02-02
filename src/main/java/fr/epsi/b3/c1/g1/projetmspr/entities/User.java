@@ -33,16 +33,7 @@ public class User {
         return id;
     }
 
-    public User() {
-    }
 
-    public User(String firstname, String lastname, String email, String password, Address address) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-        this.address = address;
-    }
 
     public String getFirstname() {
         return firstname;
@@ -83,7 +74,14 @@ public class User {
     public void setAddress(Address address) {
         this.address = address;
     }
+    public User() {
+    }
 
-
-
+    public User(String firstname, String lastname, String email, String password, Address address) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+    }
 }

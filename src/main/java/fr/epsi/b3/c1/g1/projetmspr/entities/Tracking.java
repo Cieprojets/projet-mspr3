@@ -2,12 +2,13 @@ package fr.epsi.b3.c1.g1.projetmspr.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Tracking {
+public class Tracking implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +16,7 @@ public class Tracking {
     private String pictureTrack;
     private LocalDateTime date;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Service service;
 
     @OneToMany(mappedBy = "tracking",cascade = CascadeType.ALL)
@@ -35,9 +36,12 @@ public class Tracking {
     public Tracking() {
     }
 
+
+
     public Tracking(String pictureTrack, LocalDateTime date) {
         this.pictureTrack = pictureTrack;
         this.date = date;
+
     }
 
     public String getPictureTrack() {
@@ -54,5 +58,18 @@ public class Tracking {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+
+    public void setService( Service service ) {
+        if (this.service != null) {
+            this.service.getTrackings().remove( this );
+        }
+
+        this.service = service;
+
+        if (this.service != null) {
+            this.service.getTrackings().add( this );
+        }
     }
 }

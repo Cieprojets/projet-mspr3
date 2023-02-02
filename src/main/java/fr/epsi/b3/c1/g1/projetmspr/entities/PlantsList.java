@@ -2,11 +2,12 @@ package fr.epsi.b3.c1.g1.projetmspr.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class PlantsList {
+public class PlantsList implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +34,11 @@ public class PlantsList {
     }
 
     public PlantsList(String spicies, String description, String picture) {
+
         this.spicies = spicies;
         this.description = description;
         this.picture = picture;
+
     }
 
     public String getSpicies() {
