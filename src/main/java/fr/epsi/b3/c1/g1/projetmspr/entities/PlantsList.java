@@ -13,6 +13,7 @@ public class PlantsList implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String spicies;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private String picture;
 
