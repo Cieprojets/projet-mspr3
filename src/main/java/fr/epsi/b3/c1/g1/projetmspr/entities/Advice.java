@@ -36,4 +36,12 @@ public class Advice implements Serializable {
         this.tracking = tracking;
         this.botanist = botanist;
     }
+
+    public String getAdvice() {
+        return advice;
+    }
+
+    public void setAdvice(String advice) {
+        this.advice = advice;
+    }
 }

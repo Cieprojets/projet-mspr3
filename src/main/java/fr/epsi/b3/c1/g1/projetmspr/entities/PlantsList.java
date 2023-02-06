@@ -15,6 +15,8 @@ public class PlantsList implements Serializable {
     private String spicies;
     @Column(columnDefinition = "TEXT")
     private String description;
+
+
     private String picture;
 
     @OneToMany(mappedBy = "plantsList",cascade = CascadeType.ALL)
@@ -65,4 +67,6 @@ public class PlantsList implements Serializable {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
+
 }
