@@ -14,6 +14,9 @@ public class Service implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private User gardien;
     @ManyToOne(cascade = CascadeType.ALL)
     private PlantsList plantsList;
 

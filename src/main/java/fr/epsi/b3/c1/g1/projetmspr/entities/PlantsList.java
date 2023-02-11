@@ -44,6 +44,13 @@ public class PlantsList implements Serializable {
 
     }
 
+    public PlantsList(String spicies, String description, String picture, Set<Service> services) {
+        this.spicies = spicies;
+        this.description = description;
+        this.picture = picture;
+        this.services = services;
+    }
+
     public String getSpicies() {
         return spicies;
     }

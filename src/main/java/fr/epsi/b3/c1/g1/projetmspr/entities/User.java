@@ -22,6 +22,12 @@ public class User {
     {
        services = new HashSet<>();
     }
+
+    @OneToMany(mappedBy = "gardien",cascade = CascadeType.ALL)
+    private Set<Service> servicess;
+    {
+        servicess = new HashSet<>();
+    }
      @Embedded
      private Address address;
 
