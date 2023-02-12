@@ -13,7 +13,10 @@ public class Tracking implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String pictureTrack;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "photo_id")
+    private Asset picture_track;
+
     private LocalDateTime date;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -38,18 +41,18 @@ public class Tracking implements Serializable {
 
 
 
-    public Tracking(String pictureTrack, LocalDateTime date) {
-        this.pictureTrack = pictureTrack;
+    public Tracking(Asset photo, LocalDateTime date) {
+        this.picture_track = photo;
         this.date = date;
 
     }
 
-    public String getPictureTrack() {
-        return pictureTrack;
+    public Asset getPhoto() {
+        return picture_track;
     }
 
-    public void setPictureTrack(String pictureTrack) {
-        this.pictureTrack = pictureTrack;
+    public void setPhoto(Asset photo) {
+        this.picture_track = photo;
     }
 
     public LocalDateTime getDate() {
@@ -60,8 +63,26 @@ public class Tracking implements Serializable {
         this.date = date;
     }
 
+    public Tracking(Asset photo, LocalDateTime date, Service service, Set<Advice> advices) {
+        this.picture_track = photo;
+        this.date = date;
+        this.service = service;
+        this.advices = advices;
+    }
 
-    public void setService( Service service ) {
+    public Service getService() {
+        return service;
+    }
+
+    public Set<Advice> getAdvices() {
+        return advices;
+    }
+
+    public void setAdvices(Set<Advice> advices) {
+        this.advices = advices;
+    }
+
+    public void setService(Service service ) {
         if (this.service != null) {
             this.service.getTrackings().remove( this );
         }

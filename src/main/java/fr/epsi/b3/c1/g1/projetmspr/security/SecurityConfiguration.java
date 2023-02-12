@@ -1,4 +1,4 @@
-package fr.epsi.b3.c1.g1.projetmspr.security;
+/*package fr.epsi.b3.c1.g1.projetmspr.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,3 +27,4 @@ public class SecurityConfiguration {
         return new InMemoryUserDetailsManager( user, admin );
     }
 }
+*/

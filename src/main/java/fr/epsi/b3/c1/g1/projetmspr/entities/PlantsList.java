@@ -16,8 +16,12 @@ public class PlantsList implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "photoPlant_id")
+    private Asset photoPlant;
 
-    private String picture;
+
+
 
     @OneToMany(mappedBy = "plantsList",cascade = CascadeType.ALL)
     private Set<Service> services;
@@ -36,18 +40,18 @@ public class PlantsList implements Serializable {
     public PlantsList() {
     }
 
-    public PlantsList(String spicies, String description, String picture) {
+    public PlantsList(String spicies, String description, Asset photoPlant) {
 
         this.spicies = spicies;
         this.description = description;
-        this.picture = picture;
+        this.photoPlant = photoPlant;
 
     }
 
-    public PlantsList(String spicies, String description, String picture, Set<Service> services) {
+    public PlantsList(String spicies, String description, Asset photoPlant, Set<Service> services) {
         this.spicies = spicies;
         this.description = description;
-        this.picture = picture;
+        this.photoPlant = photoPlant;
         this.services = services;
     }
 
@@ -67,12 +71,12 @@ public class PlantsList implements Serializable {
         this.description = description;
     }
 
-    public String getPicture() {
-        return picture;
+    public Asset getPhotoPlant() {
+        return photoPlant;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setPhotoPlant(Asset photoPlant) {
+        this.photoPlant = photoPlant;
     }
 
 

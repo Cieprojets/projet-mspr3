@@ -46,6 +46,13 @@ public class Service implements Serializable {
         this.plantsList = plantsList;
     }
 
+    public Service(User user, User gardien, PlantsList plantsList, Set<Tracking> trackings) {
+        this.user = user;
+        this.gardien = gardien;
+        this.plantsList = plantsList;
+        this.trackings = trackings;
+    }
+
     public Set<Tracking> getTrackings() {
         return trackings;
     }

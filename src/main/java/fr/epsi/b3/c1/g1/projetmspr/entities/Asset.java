@@ -1,15 +1,13 @@
 package fr.epsi.b3.c1.g1.projetmspr.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
 
-/*public class Asset  implements Serializable {
+@Entity
+public class Asset implements Serializable {
 
     @Id
     @GeneratedValue( generator = "uuid" )
@@ -75,8 +73,5 @@ import java.io.Serializable;
     public void setContent( byte[] content ) {
         this.content = content;
     }
-
-
 }
 
-*/
