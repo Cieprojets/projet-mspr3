@@ -24,9 +24,9 @@ public class PlantsList implements Serializable {
 
 
     @OneToMany(mappedBy = "plantsList",cascade = CascadeType.ALL)
-    private Set<Service> services;
+    private Set<Ser> sers;
     {
-        services = new HashSet<>();
+        sers = new HashSet<>();
     }
 
     public void setId(Integer id) {
@@ -48,11 +48,11 @@ public class PlantsList implements Serializable {
 
     }
 
-    public PlantsList(String spicies, String description, Asset photoPlant, Set<Service> services) {
+    public PlantsList(String spicies, String description, Asset photoPlant, Set<Ser> sers) {
         this.spicies = spicies;
         this.description = description;
         this.photoPlant = photoPlant;
-        this.services = services;
+        this.sers = sers;
     }
 
     public String getSpicies() {

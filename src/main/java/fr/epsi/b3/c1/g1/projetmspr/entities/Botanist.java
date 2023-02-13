@@ -39,6 +39,14 @@ public class Botanist implements Serializable {
 
     }
 
+    public Botanist(Integer id, Integer numEmployee, String lastname, String firstname, Set<Advice> advices) {
+        this.id = id;
+        this.numEmployee = numEmployee;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.advices = advices;
+    }
+
     public Integer getNumEmployee() {
         return numEmployee;
     }

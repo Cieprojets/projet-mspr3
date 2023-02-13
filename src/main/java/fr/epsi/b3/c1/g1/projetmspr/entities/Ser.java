@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Service implements Serializable {
+public class Ser implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -20,7 +20,7 @@ public class Service implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     private PlantsList plantsList;
 
-    @OneToMany(mappedBy = "service",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ser",cascade = CascadeType.ALL)
     private Set<Tracking> trackings;
 
     {
@@ -37,23 +37,47 @@ public class Service implements Serializable {
         return id;
     }
 
-    public Service() {
+    public Ser() {
     }
 
 
-    public Service(User user, PlantsList plantsList) {
+    public Ser(User user, PlantsList plantsList) {
         this.user = user;
         this.plantsList = plantsList;
     }
 
-    public Service(User user, User gardien, PlantsList plantsList, Set<Tracking> trackings) {
+    public Ser(User user, User gardien, PlantsList plantsList) {
         this.user = user;
         this.gardien = gardien;
         this.plantsList = plantsList;
-        this.trackings = trackings;
+
     }
 
-    public Set<Tracking> getTrackings() {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getGardien() {
+        return gardien;
+    }
+
+    public void setGardien(User gardien) {
+        this.gardien = gardien;
+    }
+
+    public PlantsList getPlantsList() {
+        return plantsList;
+    }
+
+    public void setPlantsList(PlantsList plantsList) {
+        this.plantsList = plantsList;
+    }
+
+    /*public Set<Tracking> getTrackings() {
         return trackings;
     }
 
@@ -65,6 +89,6 @@ public class Service implements Serializable {
 
         tracking.setService( this );
     }
-
+*/
 
 }

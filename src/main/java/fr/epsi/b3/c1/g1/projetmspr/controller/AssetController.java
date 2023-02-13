@@ -18,7 +18,7 @@ public class AssetController {
     @Autowired
     private AssetService assetService;
     public class TrackingService {
-    @PostMapping( "/api/les-gens/{trackingId}/photo" )
+    @PostMapping( "/api/trackings/{trackingId}/photo" )
     public ResponseEntity<?> uploadFile(@PathVariable Integer trackingId, @RequestParam( "photo" ) MultipartFile file ) {
         String message = "";
         try {
@@ -34,7 +34,7 @@ public class AssetController {
         }
     }
 
-    @GetMapping( "/api/les-gens/{trackingId}/photo" )
+    @GetMapping( "/api/trackings/{trackingId}/photo" )
     public ResponseEntity<byte[]> getFile( @PathVariable Integer trackingId ) {
         Asset photo = assetService.getTrackingPhoto( trackingId );
 
@@ -45,7 +45,7 @@ public class AssetController {
 
     }
     public class PlantService {
-        @PostMapping("/api/les-plants/{plantId}/photoPlant")
+        @PostMapping("/api/plantsLists/{plantId}/photoPlant")
         public ResponseEntity<?> uploadFile(@PathVariable Integer plantId, @RequestParam("/photoPlant") MultipartFile file) {
             String message = "";
             try {
@@ -61,7 +61,7 @@ public class AssetController {
             }
         }
 
-        @GetMapping("/api/les-plants/{plantId}/photoPlant")
+        @GetMapping("/api/plantsLists/{plantId}/photoPlant")
         public ResponseEntity<byte[]> getFile(@PathVariable Integer plantId) {
             Asset photoPlant = assetService.getPlantPhoto(plantId);
 

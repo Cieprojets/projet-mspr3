@@ -18,15 +18,15 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private Set<Service> services;
+    private Set<Ser> sers;
     {
-       services = new HashSet<>();
+       sers = new HashSet<>();
     }
 
     @OneToMany(mappedBy = "gardien",cascade = CascadeType.ALL)
-    private Set<Service> servicess;
+    private Set<Ser> servicesses;
     {
-        servicess = new HashSet<>();
+        servicesses = new HashSet<>();
     }
      @Embedded
      private Address address;

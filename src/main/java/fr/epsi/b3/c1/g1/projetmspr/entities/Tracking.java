@@ -20,7 +20,7 @@ public class Tracking implements Serializable {
     private LocalDateTime date;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Service service;
+    private Ser ser;
 
     @OneToMany(mappedBy = "tracking",cascade = CascadeType.ALL)
     private Set<Advice> advices;
@@ -63,15 +63,15 @@ public class Tracking implements Serializable {
         this.date = date;
     }
 
-    public Tracking(Asset photo, LocalDateTime date, Service service, Set<Advice> advices) {
+    public Tracking(Asset photo, LocalDateTime date, Ser ser, Set<Advice> advices) {
         this.picture_track = photo;
         this.date = date;
-        this.service = service;
+        this.ser = ser;
         this.advices = advices;
     }
 
-    public Service getService() {
-        return service;
+    public Ser getService() {
+        return ser;
     }
 
     public Set<Advice> getAdvices() {
@@ -81,16 +81,18 @@ public class Tracking implements Serializable {
     public void setAdvices(Set<Advice> advices) {
         this.advices = advices;
     }
-
-    public void setService(Service service ) {
-        if (this.service != null) {
-            this.service.getTrackings().remove( this );
+/*
+    public void setService(Ser ser) {
+        if (this.ser != null) {
+            this.ser.getTrackings().remove( this );
         }
 
-        this.service = service;
+        this.ser = ser;
 
-        if (this.service != null) {
-            this.service.getTrackings().add( this );
+        if (this.ser != null) {
+            this.ser.getTrackings().add( this );
         }
     }
+
+ */
 }
