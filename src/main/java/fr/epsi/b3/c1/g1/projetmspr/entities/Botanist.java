@@ -12,14 +12,20 @@ public class Botanist implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer numEmployee;
-    private String lastname;
-    private String firstname;
+   //private String lastname;
+    //private String firstname;
 
     @OneToMany(mappedBy = "botanist",cascade = CascadeType.ALL)
     private Set<Advice> advices;
     {
        advices = new HashSet<>();
     }
+
+    @OneToOne(mappedBy = "botanist", cascade = CascadeType.ALL)
+    private User user;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "photoPlant_id")
+    private Asset photoPlant;
 
     public void setId(Integer id) {
         this.id = id;
@@ -34,16 +40,24 @@ public class Botanist implements Serializable {
 
     public Botanist(Integer numEmployee, String lastname, String firstname) {
         this.numEmployee = numEmployee;
-        this.lastname = lastname;
-        this.firstname = firstname;
+        //this.lastname = lastname;
+        //this.firstname = firstname;
 
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Botanist(Integer id, Integer numEmployee, String lastname, String firstname, Set<Advice> advices) {
         this.id = id;
         this.numEmployee = numEmployee;
-        this.lastname = lastname;
-        this.firstname = firstname;
+        //this.lastname = lastname;
+        //this.firstname = firstname;
         this.advices = advices;
     }
 
@@ -55,19 +69,21 @@ public class Botanist implements Serializable {
         this.numEmployee = numEmployee;
     }
 
-    public String getLastname() {
+    /*public String getLastname() {
         return lastname;
     }
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
-    public String getFirstname() {
+/*
+  /*  public String getFirstname() {
         return firstname;
     }
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
+
+     */
 }

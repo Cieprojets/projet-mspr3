@@ -28,6 +28,12 @@ public class User {
     {
         servicesses = new HashSet<>();
     }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private Botanist botanist;
+
+
      @Embedded
      private Address address;
 
@@ -81,6 +87,28 @@ public class User {
         this.address = address;
     }
     public User() {
+    }
+    public Botanist getBotanist() {
+        return botanist;
+    }
+
+    public void setBotanist(Botanist botanist) {
+        this.botanist = botanist;
+    }
+
+    public User(String firstname, String lastname, String email, String password, Set<Ser> sers, Set<Ser> servicesses, Address address) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.sers = sers;
+        this.servicesses = servicesses;
+        this.address = address;
+    }
+
+    public User(Set<Ser> sers, Set<Ser> servicesses) {
+        this.sers = sers;
+        this.servicesses = servicesses;
     }
 
     public User(String firstname, String lastname, String email, String password, Address address) {

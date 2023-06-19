@@ -12,11 +12,13 @@ public class Ser implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JoinColumn(nullable = false)
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
-
+    @JoinColumn(nullable = false)
     @ManyToOne(cascade = CascadeType.ALL)
     private User gardien;
+    @JoinColumn(nullable = false)
     @ManyToOne(cascade = CascadeType.ALL)
     private PlantsList plantsList;
 
@@ -51,6 +53,13 @@ public class Ser implements Serializable {
         this.gardien = gardien;
         this.plantsList = plantsList;
 
+    }
+
+    public Ser(Integer id, User user, User gardien, PlantsList plantsList) {
+        this.id = id;
+        this.user = user;
+        this.gardien = gardien;
+        this.plantsList = plantsList;
     }
 
     public User getUser() {
