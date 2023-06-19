@@ -18,5 +18,7 @@ services:
     build:
         context: .
         dockerfile: Dockerfile
+    environment:
+      MSPR_DB: "mariadb"
     ports:
       - "8080:8080"
