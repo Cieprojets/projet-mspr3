@@ -45,4 +45,9 @@ public class BotanistServiceImpl implements BotanistService {
         botanistDAO.deleteById(id);
         return "Botanist supprimé";
     }
+
+    @Override
+    public Optional<Botanist> findById(int id) {
+        return botanistDAO.findById(id);
+    }
 }

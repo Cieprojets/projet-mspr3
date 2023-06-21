@@ -13,4 +13,5 @@ public interface BotanistService {
 
     String supprimer(Integer id);
 
+    Optional<Botanist> findById(int id);
 }

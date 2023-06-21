@@ -2,15 +2,16 @@ package fr.epsi.b3.c1.g1.projetmspr.service;
 
 import fr.epsi.b3.c1.g1.projetmspr.dal.ServiceDAO;
 import fr.epsi.b3.c1.g1.projetmspr.entities.Ser;
-import fr.epsi.b3.c1.g1.projetmspr.service.SerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class SerServiceImpl implements SerService {
     private final ServiceDAO serviceDAO;
+
     @Override
     public Ser ajouter(Ser ser) {
         return serviceDAO.save(ser);
@@ -19,6 +20,10 @@ public class SerServiceImpl implements SerService {
     @Override
     public List<Ser> lecture() {
         return (List<Ser>) serviceDAO.findAll();
+    }
+
+    public Ser findById(int Id) {
+        return serviceDAO.findSerById(Id);
     }
 
     @Override

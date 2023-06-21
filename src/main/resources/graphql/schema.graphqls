@@ -1,0 +1,82 @@
+type Ser {
+    id: ID!
+    user: User!
+    gardien: User!
+    plantList: PlantsList
+}
+
+type PlantsList {
+    id: ID!
+    spicies: String!
+    description: String
+    photo: Asset
+}
+
+type User {
+    id: ID!
+    firstname: String!
+    lastname: String!
+    email: String!
+    password: String!
+    address: Address
+    botanist: Botanist
+}
+
+type Address {
+    number: Int
+    street: String
+    city: String
+    postcode: Int
+    latitude: Float
+    longitude: Float
+}
+
+type Advice {
+    id: ID!
+    advice: String!
+    tracking: Tracking!
+    botanist: Botanist!
+}
+
+type Asset {
+    id: ID!
+    fileName: String!
+    mimeType: String!
+    size: Int!
+    content: String!
+}
+
+type Botanist {
+    id: ID!
+    numEmployee: Int
+    user: User
+}
+
+type Tracking {
+    id: ID!
+    picture_track: Asset
+    date: String
+    service: Ser
+}
+
+type Query {
+    allSer: [Ser]
+    serById(id: ID): Ser
+
+    userById(id: ID): User
+    allUser: [User]
+
+    plantById(id: ID): PlantsList
+    allPlant: [PlantsList]
+
+    botanistById(id: ID): Botanist
+    allBotanist: [Botanist]
+
+
+}
+
+type Mutation {
+    updateSer(id: ID!): Ser
+}
+
+

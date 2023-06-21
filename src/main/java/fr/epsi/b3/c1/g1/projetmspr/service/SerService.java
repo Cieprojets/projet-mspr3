@@ -13,5 +13,5 @@ public interface SerService {
     String supprime(Integer id);
 
 
-
+    Ser findById(int id);
 }
